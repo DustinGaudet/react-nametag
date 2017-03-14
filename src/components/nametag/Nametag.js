@@ -33,8 +33,9 @@ class Nametag extends Component {
             <form onSubmit={this.handleSubmit}>
               <input value={this.state.name} autoFocus onFocus={this.autoSelect} onChange={this.updateName} onBlur={this.handleSubmit}/>
             </form>
-          )} 
+          )}
         </div>
+        <p className="copyright">Copyright {this.state.name}, {new Date().toDateString()}</p>
       </div>
     );
   }
