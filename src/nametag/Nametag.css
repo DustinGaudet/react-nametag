@@ -1,0 +1,10 @@
+.nametag {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: red;
+  color: white;
+  justify-content: center;
+  margin: 20px;
+  border-radius: 10px;
+}
