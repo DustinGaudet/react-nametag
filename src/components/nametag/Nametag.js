@@ -8,12 +8,14 @@ class Nametag extends Component {
     nameEdit: false,
   }
 
-  editName = () => this.setState({nameEdit: !this.state.nameEdit})
+  autoSelect = (event) => event.target.select()
+
+  toggleNameEdit = () => this.setState({nameEdit: !this.state.nameEdit})
 
   updateName = (event) => this.setState({name: event.target.value})
 
   handleSubmit = (event) => {
-    this.setState({nameEdit: !this.state.nameEdit})
+    this.toggleNameEdit()
     event.preventDefault()
   }
 
@@ -26,10 +28,10 @@ class Nametag extends Component {
         </div>
         <div className="name">
           {this.state.nameEdit === false ? (
-            <h3 onClick={this.editName}>{this.state.name}</h3>
+            <h3 onClick={this.toggleNameEdit}>{this.state.name}</h3>
           ) : (
             <form onSubmit={this.handleSubmit}>
-              <input value={this.state.name} onChange={this.updateName} onBlur={this.handleSubmit}/>
+              <input value={this.state.name} autoFocus onFocus={this.autoSelect} onChange={this.updateName} onBlur={this.handleSubmit}/>
             </form>
           )} 
         </div>
