@@ -4,6 +4,7 @@ import Nametag from '../nametag/Nametag'
 import OptionsMenu from '../optionsmenu/OptionsMenu'
 import { CirclePicker } from 'react-color';
 import '../../../public/vendor/css/font-awesome/css/font-awesome.min.css'
+import '../../../public/vendor/css/animate.min.css'
 
 class App extends Component {
 

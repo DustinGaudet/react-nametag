@@ -1,3 +1,10 @@
+.options-menu-container.fadeIn {
+  -webkit-animation: fadeIn 0.2s !important; /* Safari 4+ */
+  -moz-animation:    fadeIn 0.2s !important; /* Fx 5+ */
+  -o-animation:      fadeIn 0.2s !important; /* Opera 12+ */
+  animation:         fadeIn 0.2s !important; /* IE 10+, Fx 29+ */
+}
+
 .options-menu-container {
   position: fixed;
   left: 0;

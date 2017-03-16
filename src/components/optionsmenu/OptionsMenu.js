@@ -5,7 +5,7 @@ class OptionsMenu extends Component {
 
   render() {
     return (
-      <div className="options-menu-container">
+      <div className="animated fadeIn options-menu-container">
         <div className="options-menu-overlay" onClick={this.props.closeMenu}>
         </div>
         <div className="options-menu-modal">
