@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Nametag from '../nametag/Nametag'
 import OptionsMenu from '../optionsmenu/OptionsMenu'
- 
+import { CirclePicker } from 'react-color';
+
 class App extends Component {
 
   state = {
@@ -19,11 +20,10 @@ class App extends Component {
     event.preventDefault()
   }
 
-  updateNametagColor = (event) => {
+  updateNametagColor = (color) => {
     this.setState({
-      nametagColor: event.target.value
+      nametagColor: color.hex
     })
-    event.preventDefault()
   }
 
   toggleNameEdit = () => this.setState({nameEdit: !this.state.nameEdit})
@@ -37,16 +37,23 @@ class App extends Component {
 
   updateName = (event) => this.setState({name: event.target.value})
 
+  noBubble = (event) => event.stopPropagation()
+
   render() {
     return (
       <div className="App">
         <Nametag data={this.state} 
-        toggleNameEdit={this.toggleNameEdit} 
-        toggleNametagMenu={this.toggleNametagMenu}
-        updateName={this.updateName} 
-        handleSubmit={this.handleSubmit}>
-          <OptionsMenu closeMenu={this.toggleNametagMenu} 
-          updateNametagColor={this.updateNametagColor} /> 
+          toggleNameEdit={this.toggleNameEdit} 
+          toggleNametagMenu={this.toggleNametagMenu}
+          updateName={this.updateName} 
+          handleSubmit={this.handleSubmit}>
+            <OptionsMenu closeMenu={this.toggleNametagMenu} 
+              updateNametagColor={this.updateNametagColor}> 
+                <CirclePicker
+                  color={this.state.nametagColor}
+                  onChangeComplete={this.updateNametagColor}
+                />
+          </OptionsMenu> 
         </Nametag>
       </div>
     );

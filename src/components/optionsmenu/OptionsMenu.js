@@ -5,14 +5,10 @@ class OptionsMenu extends Component {
 
   render() {
     return (
-      <div className="options-menu-overlay">
-        <div className="options-menu-modal">
+      <div className="options-menu-overlay" onClick={this.props.closeMenu}>
+        <div className="options-menu-modal" onClick={this.props.noBubble}>
           <button className="close-menu-button" onClick={this.props.closeMenu} >&times;</button>
-          <form onSubmit={this.props.closeMenu}>
-            <label>Nametag Color
-              <input placeholder="e.g. red, #FFF, rgb(0,0,0)" autoFocus onChange={this.props.updateNametagColor} />
-            </label>
-          </form>
+          {this.props.children}
         </div>
       </div>
     )
