@@ -3,39 +3,32 @@ import './Nametag.css';
  
 class Nametag extends Component { 
 
-  state = {
-    name: "Jed the Robot",
-    nameEdit: false,
-  }
-
-  autoSelect = (event) => event.target.select()
-
-  toggleNameEdit = () => this.setState({nameEdit: !this.state.nameEdit})
-
-  updateName = (event) => this.setState({name: event.target.value})
-
-  handleSubmit = (event) => {
-    this.toggleNameEdit()
-    event.preventDefault()
-  }
-
   render() {
+
+    const nametagStyle = {
+      backgroundColor: this.props.data.nametagColor
+    }
+
     return (
-      <div className="nametag">
+      <div className="nametag" style={nametagStyle} >
+        {this.props.data.menuOpen === true &&
+          this.props.children
+        }
         <div className="heading">
+          <button className="menu-open" onClick={this.props.toggleNametagMenu} >Menu</button>
           <h1>Hello</h1>
           <h2>my name is</h2>
         </div>
         <div className="name">
-          {this.state.nameEdit === false ? (
-            <h3 onClick={this.toggleNameEdit}>{this.state.name}</h3>
+          {this.props.data.nameEdit === false ? (
+            <h3 onClick={this.props.toggleNameEdit}>{this.props.data.name}</h3>
           ) : (
-            <form onSubmit={this.handleSubmit}>
-              <input value={this.state.name} autoFocus onFocus={this.autoSelect} onChange={this.updateName} onBlur={this.handleSubmit}/>
+            <form onSubmit={this.props.handleSubmit}>
+              <input value={this.props.data.name} autoFocus onFocus={this.props.autoSelect} onChange={this.props.updateName} onBlur={this.props.handleSubmit}/>
             </form>
           )}
         </div>
-        <p className="copyright">Copyright {this.state.name}, {new Date().toDateString()}</p>
+        <p className="copyright">Copyright {this.props.data.name}, {new Date().toDateString()}</p>
       </div>
     );
   }

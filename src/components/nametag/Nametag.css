@@ -15,6 +15,7 @@
   color: white;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .name {
@@ -26,16 +27,34 @@
   justify-content: center;
 }
 
+.menu-open {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px;
+  display: inline-block;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  height: 45px;
+  width: 45px;
+}
+
 h1 {
   font-size: 5em;
   line-height: 1em;
   margin: 10px 0 0 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 h2{
   line-height: 1em;
   font-size: 2em;
   margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: .3em;
 }
 
 h3 {
