@@ -34,11 +34,17 @@
   margin: 10px;
   display: inline-block;
   background-color: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: bold;
-  height: 45px;
-  width: 45px;
+  border: none;
+  color: white;
+}
+
+@media screen and (max-width: 500px){
+  .menu-open {
+    position: relative;
+    margin-right: 0;
+    width: 35px;
+    margin-left: auto;
+  }
 }
 
 h1 {
@@ -69,6 +75,13 @@ form > input {
   font-weight: bold;
   border: none;
   text-align: center;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 500px){
+  form > input, h3 {
+    font-size: 2em;
+  }
 }
 
 .copyright {

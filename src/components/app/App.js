@@ -3,6 +3,7 @@ import './App.css';
 import Nametag from '../nametag/Nametag'
 import OptionsMenu from '../optionsmenu/OptionsMenu'
 import { CirclePicker } from 'react-color';
+import '../../../public/vendor/css/font-awesome/css/font-awesome.min.css'
 
 class App extends Component {
 
@@ -30,8 +31,6 @@ class App extends Component {
   autoSelect = (event) => event.target.select()
 
   updateName = (event) => this.setState({name: event.target.value})
-
-  noBubble = (event) => event.stopPropagation()
 
   render() {
     return (

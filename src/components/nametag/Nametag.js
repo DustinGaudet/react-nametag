@@ -15,7 +15,7 @@ class Nametag extends Component {
           this.props.children
         }
         <div className="heading">
-          <button className="menu-open" onClick={this.props.toggleNametagMenu} >Menu</button>
+          <button className="menu-open fa fa-lg fa-cog" onClick={this.props.toggleNametagMenu} ></button>
           <h1>Hello</h1>
           <h2>my name is</h2>
         </div>
