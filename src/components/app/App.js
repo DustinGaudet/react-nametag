@@ -14,17 +14,11 @@ class App extends Component {
   }
 
   toggleNametagMenu = (event) => {
-    this.setState({
-      menuOpen: !this.state.menuOpen
-    })
+    this.setState({menuOpen: !this.state.menuOpen})
     event.preventDefault()
   }
 
-  updateNametagColor = (color) => {
-    this.setState({
-      nametagColor: color.hex
-    })
-  }
+  updateNametagColor = (color) => this.setState({nametagColor: color.hex})
 
   toggleNameEdit = () => this.setState({nameEdit: !this.state.nameEdit})
 
@@ -46,7 +40,9 @@ class App extends Component {
           toggleNameEdit={this.toggleNameEdit} 
           toggleNametagMenu={this.toggleNametagMenu}
           updateName={this.updateName} 
-          handleSubmit={this.handleSubmit}>
+          handleSubmit={this.handleSubmit}
+          autoSelect={this.autoSelect}
+          >
             <OptionsMenu closeMenu={this.toggleNametagMenu} 
               updateNametagColor={this.updateNametagColor}> 
                 <CirclePicker
