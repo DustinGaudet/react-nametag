@@ -1,42 +1,54 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Nametag.css';
  
-class Nametag extends Component { 
+const Nametag = (props) => {
+  
+  const nametagStyle = {
+    backgroundColor: props.data.nametagColor
+  }
 
-  render() {
+  const renderMenu = () => props.data.menuOpen === true && props.children
 
-    const nametagStyle = {
-      backgroundColor: this.props.data.nametagColor
+  const renderNameEdit = () => {
+    if (!props.data.nameEdit) {
+      return (
+        <h3 className="" onClick={props.toggleNameEdit}>{props.data.name}</h3>
+      );
     }
 
     return (
-      <div className="nametag" style={nametagStyle} >
-        {this.props.data.menuOpen === true &&
-          this.props.children
-        }
-        <div className="heading">
-          <button className="menu-open fa fa-lg fa-cog" 
-            onClick={this.props.toggleNametagMenu} ></button>
-          <h1 className="animated slideInDown">Hello</h1>
-          <h2 className="animated fadeIn">my name is</h2>
-        </div>
-        <div className="name">
-          {this.props.data.nameEdit === false ? (
-            <h3 className="" onClick={this.props.toggleNameEdit}>{this.props.data.name}</h3>
-          ) : (
-            <form onSubmit={this.props.handleSubmit}>
-              <input value={this.props.data.name} 
-                autoFocus 
-                onFocus={this.props.autoSelect} 
-                onChange={this.props.updateName} 
-                onBlur={this.props.handleSubmit}/>
-            </form>
-          )}
-        </div>
-        <p className="animated fadeIn copyright">Copyright {this.props.data.name}, {new Date().toDateString()}</p>
-      </div>
+      <form onSubmit={props.handleSubmit}>
+        <input 
+          value={props.data.name} 
+          autoFocus 
+          onFocus={props.autoSelect} 
+          onChange={props.updateName} 
+          onBlur={props.handleSubmit}
+        />
+      </form>
     );
   }
+
+  return (
+    <div className="nametag" style={nametagStyle} >
+        
+      {renderMenu()}
+
+      <div className="heading">
+        <button 
+          className="menu-open fa fa-lg fa-cog" 
+          onClick={props.toggleNametagMenu} ></button>
+        <h1 className="animated slideInDown">Hello</h1>
+        <h2 className="animated fadeIn">my name is</h2>
+      </div>
+
+      <div className="name">
+        {renderNameEdit()}
+      </div>
+
+      <p className="animated fadeIn copyright">Copyright {props.data.name}, {new Date().toDateString()}</p>
+    </div>
+  )
 }
 
 export default Nametag;

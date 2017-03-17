@@ -43,8 +43,7 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           autoSelect={this.autoSelect}
           >
-            <OptionsMenu closeMenu={this.toggleNametagMenu} 
-              updateNametagColor={this.updateNametagColor}> 
+            <OptionsMenu closeMenu={this.toggleNametagMenu} > 
                 <CirclePicker
                   color={this.state.nametagColor}
                   onChangeComplete={this.updateNametagColor}
